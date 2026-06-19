@@ -11,7 +11,7 @@ void Notify(const char* text)
     OrbisNotificationRequest req;
     memset(&req, 0, sizeof(req));
 
-    req.type = 0;
+    req.type = (OrbisNotificationRequestType)0;
     req.unk3 = 0;
     req.useIconImageUri = 1;
     req.targetId = -1;
