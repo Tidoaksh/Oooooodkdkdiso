@@ -19,6 +19,9 @@ LDFLAGS = -shared \
 	-Wl,--emit-relocs \
 	-Wl,-T,$(OO)/link.x \
 	-Wl,-e,module_start \
+	-Wl,--undefined=module_start \
+	-Wl,--undefined=module_stop \
+	-Wl,--defsym=__gmon_start__=0 \
 	-L$(OO)/lib \
 	-lkernel \
 	-lc
