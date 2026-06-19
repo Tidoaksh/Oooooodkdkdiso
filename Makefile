@@ -11,15 +11,14 @@ CFLAGS = -O2 -fPIC -std=c++17 \
 	-fno-rtti \
 	-fno-stack-protector \
 	-fno-ident \
-	-nostdlib \
-	-nodefaultlibs \
-	-ffreestanding \
 	-I$(OO)/include
 
 LDFLAGS = -shared \
 	-fuse-ld=lld \
 	-Wl,--build-id=none \
-	-Wl,--no-undefined \
+	-Wl,--emit-relocs \
+	-Wl,-T,$(OO)/link.x \
+	-Wl,-e,module_start \
 	-L$(OO)/lib \
 	-lkernel \
 	-lc
