@@ -21,7 +21,8 @@ LDFLAGS = -shared \
 	-Wl,--build-id=none \
 	-Wl,--no-undefined \
 	-L$(OO)/lib \
-	-lkernel
+	-lkernel \
+	-lc
 
 all:
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET).elf $(LDFLAGS)
