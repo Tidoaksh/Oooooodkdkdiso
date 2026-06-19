@@ -6,10 +6,20 @@ OO = /workspaces/Gta-net-dump/OpenOrbis-PS4-Toolchain/bin/linux/OpenOrbis/PS4Too
 CC = clang++
 STRIP = strip
 
-CFLAGS = -O2 -fPIC -std=c++17 -fno-exceptions -fno-rtti \
+CFLAGS = -O2 -fPIC -std=c++17 \
+         -fno-exceptions \
+         -fno-rtti \
+         -fno-stack-protector \
+         -fno-ident \
+         -nostdlib \
+         -nodefaultlibs \
+         -ffreestanding \
          -I$(OO)/include
 
-LDFLAGS = -shared -fuse-ld=lld \
+LDFLAGS = -shared \
+          -fuse-ld=lld \
+          -Wl,--no-undefined \
+          -Wl,--build-id=none \
           -L$(OO)/lib \
           -lkernel
 
