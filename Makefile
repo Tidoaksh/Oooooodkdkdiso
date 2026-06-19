@@ -7,21 +7,21 @@ CC = clang++
 STRIP = strip
 
 CFLAGS = -O2 -fPIC -std=c++17 \
-         -fno-exceptions \
-         -fno-rtti \
-         -fno-stack-protector \
-         -fno-ident \
-         -nostdlib \
-         -nodefaultlibs \
-         -ffreestanding \
-         -I$(OO)/include
+	-fno-exceptions \
+	-fno-rtti \
+	-fno-stack-protector \
+	-fno-ident \
+	-nostdlib \
+	-nodefaultlibs \
+	-ffreestanding \
+	-I$(OO)/include
 
 LDFLAGS = -shared \
-          -fuse-ld=lld \
-          -Wl,--no-undefined \
-          -Wl,--build-id=none \
-          -L$(OO)/lib \
-          -lkernel
+	-fuse-ld=lld \
+	-Wl,--build-id=none \
+	-Wl,--no-undefined \
+	-L$(OO)/lib \
+	-lkernel
 
 all:
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET).elf $(LDFLAGS)
