@@ -32,4 +32,4 @@ all:
 	$(STRIP) $(TARGET).elf
 
 clean:
-	rm -f *.elf *.prx
+	rm -f *.elf *.prx *.o
