@@ -15,8 +15,8 @@ LDFLAGS = -shared -fuse-ld=lld \
 
 all:
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET).elf $(LDFLAGS)
+	$(OO)/bin/linux/create-fself -in=$(TARGET).elf -lib=$(TARGET).prx
 	$(STRIP) $(TARGET).elf
-	$(OO)/bin/linux/create-fself $(TARGET).elf $(TARGET).prx
 
 clean:
 	rm -f *.elf *.prx
